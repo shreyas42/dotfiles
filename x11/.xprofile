@@ -1,0 +1,39 @@
+#!/bin/sh
+
+# fix gnome apps staring slow due to failing services
+dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
+
+# setting the xrandr resolution manually
+xrandr --newmode "1920x1080_60.00" 173.00 1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync
+xrandr --addmode Virtual1 1920x1080_60.00
+xrandr --output Virtual1 --mode 1920x1080_60.00 --rate 59.96
+
+# setting the keyboard rate
+xset r rate 300 50 &
+
+# setting the wallpaper
+setbg &
+
+# restoring alsa state on startup
+restore_alsa &
+
+# enabling xcompmgr for transparency effects
+xcompmgr &
+
+# starting the notification server
+dunst &
+
+# enabling unclutter, hides the mouse when idle
+unclutter &
+
+# using Xresources on startup
+# not sure if i need to source it here,
+# xinitrc is already merging the userlevel Xresources
+[ -f ~/.Xresources ] && xrdb ~/.Xresources
+
+# setting up the gnome-keyring
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
+# switching caps and escape
+# currently in VM, so no need for this line, uncomment if you need it
+#setxkbmap -option caps:escape

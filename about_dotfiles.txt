@@ -1,0 +1,15 @@
+So here's the difference between .profile, .bash_profile and .bashrc
+When we first boot up our computer (in the absence of a window/desktop manager),
+the OS launches the program gettty(), which as the name suggests opens an interactive tty session and starts
+bash(in our case) as a login shell. Login shells are a little different from regular interactive bash shells
+
+When starting a login shell from tty - it reads .bash_profile
+An alternative to .bash_profile is .profile, some login shells read this
+
+.xinitrc is used by startx. Any commands present in this file will be executed by startx.
+Keep in mind that any command after 'exec i3' (or the window manager of your choice)
+will not run, so make sure you launch background processes before that.
+I keep some commands that I want run in the .xprofile and source .xprofile from .xinitrc
+
+Individual configuration files for each installed program (i3, ranger, polybar, etc) can be
+found inside the .config/ folder in the $HOME.

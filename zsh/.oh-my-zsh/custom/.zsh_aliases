@@ -1,0 +1,12 @@
+# -- zsh aliases -- #
+list_installed_pkg_size() {
+pacman -Qei | awk '$1 ~ "^Name" {printf $3" "}; $1 ~ "^Installed" {print $4,$5}' | sort -rk 3d -rk 2,2n
+}
+
+alias awk='gawk' # setting awk as an alias for quick use
+alias ls='ls --color=auto' # always use colors with ls
+# alias to avoid wget from creating a hist file in the ~ directory
+alias wget='wget --hsts-file ~/.config/.wget-hsts'
+alias pacquery=list_installed_pkg_size
+# alias dmenu='dmenu -fn "DejaVu Sans-12" -nb "#030616" -nf "#a5c5df" -sb "#0B3DA2"'
+alias tmux='tmux -f /home/shreyas/.config/tmux/config'

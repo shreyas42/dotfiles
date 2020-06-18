@@ -1,0 +1,55 @@
+# -- general tips and tricks -- #
+Might need to install gtkmm3 to copy between host and guest
+Enabled the paccache.timer as well as my own timer that invokes pacman -Sc every month
+Next step is to install the graphical user interface
+systemd unit files are found in /usr/lib/systemd/system and /etc/systemd/system, with the latter taking precedence.
+technically the unit files written by the sysadmin needs to be in /etc/systemd/system
+
+#-- xorg install packages -- #
+xorg-server (X server) - Installed
+xorg-xwininfo (window information in X) - Installed
+xorg-xinit (starting an X session) - Installed
+i3-gaps (AUR?) (i3 window manager) - Installed
+ttf-inconsolata (monospace font) - Installed
+ttf-linux-libertine (sans and serif fonts) - Installed
+arandr (gui for xrandr) - Installed
+bc (simple calculator) - Installed
+calcurse(optional) (calendar and scheduling on the command line)
+xcompmgr (anti-aliasing X and transparency effects) - Installed
+xorg-xprop (property displayer for X) - Installed
+libnotify (library to send desktop notifications) - Installed
+dunst (customizable and lightweight notification deamon) - Installed
+exfat-utils (working with the exFAT file system)
+sxiv (X image viewer) - Installed
+xwallpaper (setting wallpapers in X) - Installed
+ffmpeg (for recording and streaming audio/video) (optional) - Installed
+gnome-keyring (store passwords and encryption keys) - Installed
+gtk-theme-arch-gruvbox-git - Installed
+mpd mpc ncmpcpp (music player and stuff)
+polybar (status bar) - Installed
+brave-bin (web browser) - Installed
+noto-fonts-emoji (emoji fonts) - Installed
+ntfs-3g (allows using ntfs partitions)
+alsa-utils (for accessing alsa interface) - Installed
+main (screenshots) - Installed
+socat (socket utility)
+tmux
+unclutter (hides the mouse after inactivity) - Installed
+unrar - Installed
+unzip - Installed
+lynx (terminal browser)
+xcape (super escape mappings) - Installed
+xclip (copy paste into command line) - Installed
+xorg-xdpyinfo (aids with determining resolution) - Installed
+zathura (pdf viewer)
+poppler (pdf support)
+zathura-pdf-mupdf)
+xeventbind (launch scripts on X events) - AUR Installed
+polybar-i3scripts - Git Installed
+need a screen locker (slock/i3-lock-blur)
+
+Battery scripting - look at the /sys/class/power_supply directory for a list of available batteries
+Cat the contents of the capacity and status files to figure out current battery levels and charge/discharge state respectively.
+
+Polybar issues:
+- Sometimes on a system upgrade (especially if libjson is updated), the update to the packages can break polybar, resulting in issues like being unable to load the shared library (version mismatch) - to fix this, simply re-build polybar from source and it should work.

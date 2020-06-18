@@ -1,0 +1,111 @@
+! Xresources is used by URxvt to set colorschemes as well as font 
+! options
+
+! Nord colorscheme
+! Copyright (c) 2016-present Arctic Ice Studio <development@arcticicestudio.com>
+! Copyright (c) 2016-present Sven Greb <code@svengreb.de>
+
+! Project:    Nord XResources
+! Version:    0.1.0
+! Repository: https://github.com/arcticicestudio/nord-xresources
+! License:    MIT
+
+#define nord0 #2E3440
+#define nord1 #3B4252
+#define nord2 #434C5E
+#define nord3 #4C566A
+#define nord4 #D8DEE9
+#define nord5 #E5E9F0
+#define nord6 #ECEFF4
+#define nord7 #8FBCBB
+#define nord8 #88C0D0
+#define nord9 #81A1C1
+#define nord10 #5E81AC
+#define nord11 #BF616A
+#define nord12 #D08770
+#define nord13 #EBCB8B
+#define nord14 #A3BE8C
+#define nord15 #B48EAD
+
+*.foreground:   nord4
+*.background:   nord0
+*.cursorColor:  nord4
+*fading: 35
+*fadeColor: nord3
+
+*.color0: nord1
+*.color1: nord11
+*.color2: nord14
+*.color3: nord13
+*.color4: nord9
+*.color5: nord15
+*.color6: nord8
+*.color7: nord5
+*.color8: nord3
+*.color9: nord11
+*.color10: nord14
+*.color11: nord13
+*.color12: nord9
+*.color13: nord15
+*.color14: nord7
+*.color15: nord6
+
+! -- General font settings -- !
+! setting regular font
+*.font:				xft:DejaVu Sans Mono for Powerline:style=Book:pixelsize=16,xft:Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular:pixelsize=16,xft:Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular:pixelsize=16
+! setting bold font
+*.boldFont:			xft:DejaVu Sans Mono for Powerline:style=Bold:pixelsize=16,xft:Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid:pixelsize=16
+! setting italic font
+*.italicFont:			xft:DejaVu Sans Mono for Powerline:style=Oblique:pixelsize=16
+
+! -- Xft settings -- !
+! setting dpi
+Xft.dpi:			96
+! enabling anti-aliasing
+Xft.antialias:			1
+! screen hinting - aligning characters
+Xft.autohint:			1
+Xft.hinting:			1
+Xft.hintstyle:			hintslight
+! used to sharpen true type fonts 
+Xft.lcdfilter:			lcdlight
+
+! -- URxvt settings -- !
+! URxvt terminal names
+URxvt*termName:			rxvt-unicode-256color
+! text alignment in URxvt
+URxvt*lineSpace:		1
+URxvt.letterSpace:		-1
+! disabling the useless ctrl+shift feature
+URxvt.iso14755:			false
+URxvt.iso14755_52:		false
+! setting the geometry of the floating terminal
+URxvt*geometry:			110x30
+! disabling the scrollbar inside the terminal
+URxvt.scrollBar:		false
+! setting internal spacing
+URxvt.internalBorder:		16
+! adding blinking cursor
+URxvt.cursorBlink:		true
+! disbling cursor underline
+URxvt.cursorUnderline:		false
+! color depth
+URxvt.depth:			32
+! URxvt perl extensions
+URxvt.perl-ext-common:	default,clipboard,url-select,keyboard-select,eval,resize-font
+! Setting up copy and paste 
+URxvt.keysym.M-c:		eval:selection_to_clipboard
+URxvt.keysym.M-v:		eval:paste_clipboard
+URxvt.keysym.Control-Meta-c:	builtin-string:	
+URxvt.keysym.Control-Meta-v:	builtin-string:	
+! Setting up the URL launcher
+URxvt.urlLauncher:		firefox
+URxvt.underlineURLs:		true
+URxvt.urlButton:		1
+! adding transparency
+/* URxvt.transparent:		true */
+/* URxvt.tintColor:		white */
+/* URxvt.shading:			20 */
+! adding keyboard scroll
+URxvt.keysym.Shift-Down:     command:\033]721;1\007
+URxvt.keysym.Shift-Up:     command:\033]720;1\007
