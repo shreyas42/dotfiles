@@ -1,0 +1,13 @@
+#!/bin/sh
+
+user=$(whoami)
+choice=$(echo -e " Poweroff\n Reboot" | dmenu -h 30 -i -p " Goodbye $user")
+
+case $choice in 
+    *Poweroff) 
+        confirm=$(echo -e "Yes\nNo" | dmenu -h 30 -i -p "Are you sure?")
+        [ $confirm == "Yes" ] && systemctl poweroff ;;
+    *Reboot)
+        confirm=$(echo -e "Yes\nNo" | dmenu -h 30 -i -p "Are you sure?")
+        [ $confirm == "Yes" ] && systemctl reboot ;;
+esac

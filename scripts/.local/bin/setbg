@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# the system wallpaper is present at ~/.config/wallpaper.jpg
+# or you can give the path of your wallpaper and it'll copy the file over
+
+# this script is also invoked by xeventbind in the event the screen resolution changes
+
+[ -f "$1" ]  && cp "$1" ~/.config/wallpaper.jpg && notify-send -i "$HOME/.config/wallpaper.jpg" "Wallpaper changed"
+
+# setting the wallpaper
+xwallpaper --zoom ~/.config/wallpaper.jpg

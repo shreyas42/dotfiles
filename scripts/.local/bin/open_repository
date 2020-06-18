@@ -1,0 +1,4 @@
+#!/bin/sh
+
+repo=$(dmenu -h 30 -p " Which repository would you like to visit?" < /dev/null)
+[ -z $repo ] && exit || firefox --new-tab "https://github.com/$repo"

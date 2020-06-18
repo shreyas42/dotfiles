@@ -1,0 +1,5 @@
+
+#!/bin/sh
+
+# restore alsa settings
+alsactl --file /home/shreyas/.config/asound.state restore

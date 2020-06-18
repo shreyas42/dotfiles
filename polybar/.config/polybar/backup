@@ -1,0 +1,203 @@
+; look up the polybar wiki for a complete explanation of each option
+
+; to use xrdb colors, need to compile with xcb-util-xrm
+[colors]
+background = ${xrdb:color0:#222}
+background-alt = ${xrdb:color3:#222}
+foreground = ${xrdb:color7:#222}
+foreground-alt = ${xrdb:color2:#555}
+highlight = ${xrdb:color12:#f00}
+highlight-alt = ${xrdb:color2:#f00}
+urgent = #f00
+
+black = ${xrdb:color0:#222}
+darkred = ${xrdb:color1:#222}
+darkgreen = ${xrdb:color2:#222}
+darkyellow = ${xrdb:color3:#222}
+darkblue = ${xrdb:color4:#222}
+darkmagenta = ${xrdb:color5:#222}
+darkcyan = ${xrdb:color6:#222}
+lightgray = ${xrdb:color7:#222}
+gray = ${xrdb:color8:#222}
+red = ${xrdb:color9:#222}
+green = ${xrdb:color10:#222}
+yellow = ${xrdb:color11:#222}
+blue = ${xrdb:color12:#222}
+magenta = ${xrdb:color13:#222}
+cyan = ${xrdb:color14:#222}
+white = ${xrdb:color15:#222}
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 3
+margin-bottom = 3
+
+[bar/default]
+
+; monitor settings
+; uses $MONITOR env variable set by the launch script
+monitor = ${env:MONITOR}
+; fallback monitor
+monitor-fallback = 
+; sometimes xrandr will show a monitor disconnected
+; when it actuall isnt, this is a fix 
+monitor-strict = false
+monitor-exact = true
+
+; position of the status bar
+bottom = false
+
+; status bar geometry
+width = 100%
+height = 24
+offset-x = 0%
+offset-y = 0%
+radius = 0.0
+fixed-center = true
+
+; some colors
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+line-color = #f00
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 1
+padding-right = 2
+padding-top = 2
+padding-bottom = 2
+
+module-margin-left = 1
+module-margin-right = 1
+
+; setting the default font and vertical offset
+font-0 = "DejaVu Sans::size=11;2"
+font-1 = "Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular:size=11;2.5"
+font-2 = "Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid:size=11;2.5"
+font-3 = "Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular:size=11;2.5"
+
+; fixes issue with bar appearing over full screen in i3
+wm-restack = i3
+; need this with i3
+override-redirect = true
+
+; module information
+modules-left = i3 xwindow
+modules-right = volume cpu memory date
+
+; tray information
+tray-position = right
+tray-maxsize = 16
+tray-padding = 1
+tray-scale = 1.0
+
+[module/i3]
+type = internal/i3
+; only show workspaces on the same monitor as the bar
+pin-workspaces = true
+strip-wsnumbers = true
+fuzzy-match = true
+format = <label-state><label-mode>
+index-sort = true
+wrapping-scroll = true
+enable-click = true
+enable-scroll = true
+
+; label-mode = %mode%
+; label-mode-padding = 2
+; label-mode-background = ${colors.background}
+
+
+; label-focused = %index%
+; label-focused-background = ${colors.cyan}
+; label-focused-foreground = ${colors.black}
+; label-focused-underline = ${colors.darkgreen}
+; label-focused-padding = 2
+label-unfocused = %name%
+label-unfocused-padding = 2
+label-unfocused-foreground = #ffffff
+
+label-focused = %name%
+label-focused-foreground = #fff
+label-focused-background = #50505354
+label-focused-underline = ${colors.white}
+label-focused-padding = 2
+
+[module/xwindow]
+type = internal/xwindow
+format = <label>
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+
+label = %title%
+
+[module/volume]
+type = internal/alsa
+
+format-volume = "<label-volume><bar-volume>"
+label-volume = "  "
+label-volume-foreground = ${colors.magenta}
+; label-volume-background = #50505354
+
+format-muted-prefix = " "
+format-muted-foreground = ${colors.white}
+label-muted = muted
+
+interval = 5
+bar-volume-width = 10
+bar-volume-foreground-0 = ${colors.magenta}
+bar-volume-foreground-1 = ${colors.magenta}
+bar-volume-foreground-2 = ${colors.magenta}
+bar-volume-foreground-3 = ${colors.magenta}
+bar-volume-foreground-4 = ${colors.magenta}
+bar-volume-foreground-5 = ${colors.magenta}
+bar-volume-foreground-6 = ${colors.magenta}
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-foreground = ${colors.blue}
+bar-volume-indicator-font = 0
+bar-volume-fill = -
+bar-volume-fill-font = 0
+bar-volume-empty = -
+bar-volume-empty-font = 0
+bar-volume-empty-foreground = ${colors.white}
+
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+
+format = <label> 
+format-underline = ${colors.magenta}
+format-foreground = ${colors.white}
+; format-background = #50505354
+label = "     %percentage%%    " 
+
+[module/memory]
+type = internal/memory
+interval = 3
+
+format = <label>
+label = "    %gb_used%/%gb_total%   "
+format-underline = ${colors.white}
+; format-background = #50505354
+format-foreground = ${colors.blue}
+
+[module/date]
+type = internal/date
+interval = 60
+
+date = "%d-%m-%Y"
+time = "%H:%M"
+
+format-prefix = "    "
+format-foreground = ${colors.white}
+; format-background = #50505354
+format-underline=${colors.magenta}
+
+label = "%date% | %time%   "
+
