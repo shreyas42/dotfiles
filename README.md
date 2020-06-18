@@ -1,6 +1,8 @@
-## Dotfiles that I use on my Arch Linux Install.
+## Dotfiles that I use on my Arch Linux Install (a.k.a the CoronaRice).
+I'm using a Nord theme with inspiration drawn from many creative ricers across the web.
+Clone the repo into your home directory and use GNU Stow to set up the symlinks correctly.
 
 ## You can find some screenshots here:
-![Desktop environment](https://github.com/shreyas42/dotfiles/blob/master/desktop.png = 250x250)
-![System info](https://github.com/shreyas42/dotfiles/blob/master/info.png = 250x250)
-![Workflow](https://github.com/shreyas42/dotfiles/blob/master/workflow.png = 250x250)
+![alt text](https://github.com/shreyas42/dotfiles/blob/master/desktop.png "Desktop environment")
+![System info](https://github.com/shreyas42/dotfiles/blob/master/info.png "System information")
+![Workflow](https://github.com/shreyas42/dotfiles/blob/master/workflow.png "Workflow")
