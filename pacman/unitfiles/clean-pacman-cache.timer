@@ -1,0 +1,9 @@
+[Unit]
+Description=Clean pacman cache monthly
+
+[Timer]
+OnCalendar=monthly
+Persistent=true
+
+[Install]
+WantedBy=timers.target
